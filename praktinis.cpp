@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    
+
     const double GBP_Bendras   = 0.8729;
     const double GBP_Pirkti    = 0.8600;
     const double GBP_Parduoti  = 0.9220;
@@ -20,13 +20,12 @@ int main() {
 
     int veiksmas = 0;
 
-    
     cout << fixed << setprecision(2);
 
     do {
-        cout << "\n========================================\n";
+        cout << "\n======================================== \n";
         cout << "         VALIUTOS KEITYKLA (EUR)        \n";
-        cout << "========================================\n";
+        cout << "======================================== \n";
         cout << "1. Valiutos kurso palyginimas su EUR\n";
         cout << "2. Pirkti valiuta (EUR -> Valiuta)\n";
         cout << "3. Parduoti valiuta (Valiuta -> EUR)\n";
@@ -44,7 +43,6 @@ int main() {
             continue;
         }
 
-        
         cout << "\nPasirinkite valiuta:\n";
         cout << "1 - GBP (Didziosios Britanijos svaras)\n";
         cout << "2 - USD (JAV doleris)\n";
@@ -84,9 +82,8 @@ int main() {
                 break;
         }
 
-        
         if (veiksmas == 1) {
-            
+
             cout << "\n----------------------------------------\n";
             cout << "VALIUTOS KURSO PALYGINIMAS:\n";
             cout << "1 EUR = " << bendrasKursas << " " << valiutosKodas << "\n";
@@ -109,7 +106,7 @@ int main() {
             }
 
             if (veiksmas == 2) {
-                
+
                 double gautaSuma = suma * pirkimoKursas;
                 cout << "\n----------------------------------------\n";
                 cout << "PIRKIMO REZULTATAS:\n";
@@ -119,7 +116,7 @@ int main() {
                 cout << "----------------------------------------\n";
             }
             else if (veiksmas == 3) {
-                
+
                 double gautaSuma = suma / pardavimoKursas;
                 cout << "\n----------------------------------------\n";
                 cout << "PARDAVIMO REZULTATAS:\n";
