@@ -1,11 +1,11 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <iomanip>
 #include <string>
 
 using namespace std;
 
 int main() {
-    
+
     const double GBP_Bendras   = 0.8729;
     const double GBP_Pirkti    = 0.8600;
     const double GBP_Parduoti  = 0.9220;
@@ -20,13 +20,12 @@ int main() {
 
     int veiksmas = 0;
 
-    
     cout << fixed << setprecision(2);
 
     do {
-        cout << "\n========================================\n";
+        cout << "\n======================================== \n";
         cout << "         VALIUTOS KEITYKLA (EUR)        \n";
-        cout << "========================================\n";
+        cout << "======================================== \n";
         cout << "1. Valiutos kurso palyginimas su EUR\n";
         cout << "2. Pirkti valiuta (EUR -> Valiuta)\n";
         cout << "3. Parduoti valiuta (Valiuta -> EUR)\n";
@@ -34,17 +33,21 @@ int main() {
         cout << "Pasirinkite veiksma (1-4): ";
         cin >> veiksmas;
 
+
+       if(!(cin >> veiksmas) || veiksmas <1 || veiksmas >4){
+        cout <<"\nKLAIDA: Neteisingas veiksmo pasirinkimas! Bandykite dar karta.\n";
+
+        cin.clear();
+        cin.ignore(1000, '\n');
+        continue;
+       }
         if (veiksmas == 4) {
             cout << "\nAciu, kad naudojates programa. Viso gero!\n";
             break;
         }
 
-        if (veiksmas < 1 || veiksmas > 4) {
-            cout << "\nKLAIDA: Neteisingas veiksmo pasirinkimas! Bandykite dar karta.\n";
-            continue;
-        }
-
         
+
         cout << "\nPasirinkite valiuta:\n";
         cout << "1 - GBP (Didziosios Britanijos svaras)\n";
         cout << "2 - USD (JAV doleris)\n";
@@ -53,10 +56,13 @@ int main() {
         int valiutaPasirinkimas;
         cin >> valiutaPasirinkimas;
 
-        if (valiutaPasirinkimas < 1 || valiutaPasirinkimas > 3) {
-            cout << "\nKLAIDA: Neteisingas valiutos pasirinkimas! Bandykite dar karta.\n";
-            continue;
-        }
+       if (!(cin >> valiutaPasirinkimas) || valiutaPasirinkimas < 1 || valiutaPasirinkimas > 3) {
+        cout << "\nKLAIDA: Neteisingas valiutos pasirinkimas! Bandykite dar karta.\n";
+        cin.clear();
+        cin.ignore(1000, '\n');
+        continue;
+    
+}
 
         string valiutosKodas = "";
         double bendrasKursas = 0.0;
@@ -84,9 +90,8 @@ int main() {
                 break;
         }
 
-        
         if (veiksmas == 1) {
-            
+
             cout << "\n----------------------------------------\n";
             cout << "VALIUTOS KURSO PALYGINIMAS:\n";
             cout << "1 EUR = " << bendrasKursas << " " << valiutosKodas << "\n";
@@ -109,7 +114,7 @@ int main() {
             }
 
             if (veiksmas == 2) {
-                
+
                 double gautaSuma = suma * pirkimoKursas;
                 cout << "\n----------------------------------------\n";
                 cout << "PIRKIMO REZULTATAS:\n";
@@ -119,7 +124,7 @@ int main() {
                 cout << "----------------------------------------\n";
             }
             else if (veiksmas == 3) {
-                
+
                 double gautaSuma = suma / pardavimoKursas;
                 cout << "\n----------------------------------------\n";
                 cout << "PARDAVIMO REZULTATAS:\n";
@@ -130,7 +135,7 @@ int main() {
             }
         }
 
-    } while (veiksmas != 4);
+    } while (veiksmas <= 4);
 
     return 0;
 }
