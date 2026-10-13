@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <iomanip>
 #include <string>
 
@@ -33,15 +33,20 @@ int main() {
         cout << "Pasirinkite veiksma (1-4): ";
         cin >> veiksmas;
 
+
+       if(!(cin >> veiksmas) || veiksmas <1 || veiksmas >4){
+        cout <<"\nKLAIDA: Neteisingas veiksmo pasirinkimas! Bandykite dar karta.\n";
+
+        cin.clear();
+        cin.ignore(1000, '\n');
+        continue;
+       }
         if (veiksmas == 4) {
             cout << "\nAciu, kad naudojates programa. Viso gero!\n";
             break;
         }
 
-        if (veiksmas < 1 || veiksmas > 4) {
-            cout << "\nKLAIDA: Neteisingas veiksmo pasirinkimas! Bandykite dar karta.\n";
-            continue;
-        }
+        
 
         cout << "\nPasirinkite valiuta:\n";
         cout << "1 - GBP (Didziosios Britanijos svaras)\n";
@@ -51,10 +56,13 @@ int main() {
         int valiutaPasirinkimas;
         cin >> valiutaPasirinkimas;
 
-        if (valiutaPasirinkimas < 1 || valiutaPasirinkimas > 3) {
-            cout << "\nKLAIDA: Neteisingas valiutos pasirinkimas! Bandykite dar karta.\n";
-            continue;
-        }
+       if (!(cin >> valiutaPasirinkimas) || valiutaPasirinkimas < 1 || valiutaPasirinkimas > 3) {
+        cout << "\nKLAIDA: Neteisingas valiutos pasirinkimas! Bandykite dar karta.\n";
+        cin.clear();
+        cin.ignore(1000, '\n');
+        continue;
+    
+}
 
         string valiutosKodas = "";
         double bendrasKursas = 0.0;
@@ -127,7 +135,7 @@ int main() {
             }
         }
 
-    } while (veiksmas != 4);
+    } while (veiksmas <= 4);
 
     return 0;
 }
