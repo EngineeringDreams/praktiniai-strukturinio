@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include <iomanip>
 #include <string>
 
@@ -34,11 +34,9 @@ int main() {
         cin >> veiksmas;
 
 
-       if(!(cin >> veiksmas) || veiksmas <1 || veiksmas >4){
+       if(veiksmas <1 || veiksmas >4){
         cout <<"\nKLAIDA: Neteisingas veiksmo pasirinkimas! Bandykite dar karta.\n";
 
-        cin.clear();
-        cin.ignore(1000, '\n');
         continue;
        }
         if (veiksmas == 4) {
@@ -56,10 +54,8 @@ int main() {
         int valiutaPasirinkimas;
         cin >> valiutaPasirinkimas;
 
-       if (!(cin >> valiutaPasirinkimas) || valiutaPasirinkimas < 1 || valiutaPasirinkimas > 3) {
+       if (valiutaPasirinkimas < 1 || valiutaPasirinkimas > 3) {
         cout << "\nKLAIDA: Neteisingas valiutos pasirinkimas! Bandykite dar karta.\n";
-        cin.clear();
-        cin.ignore(1000, '\n');
         continue;
     
 }
